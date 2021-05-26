@@ -16,6 +16,7 @@ class CreateTenantsTable extends Migration
         Schema::create('tenants', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->uuid('uuid');
             $table->timestamps();
         });
     }
