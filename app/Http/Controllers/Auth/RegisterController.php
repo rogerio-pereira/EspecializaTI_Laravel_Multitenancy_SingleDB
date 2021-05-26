@@ -50,7 +50,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            // 'tenant' => 'required|string|mn:3|max:100|unique:tenants,id',
+            'tenant' => 'required|string|min:3|max:100|unique:tenants,id',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
@@ -67,8 +67,6 @@ class RegisterController extends Controller
     {
         $tenant = Tenant::create([
             'name' => $data['tenant'],
-            // 'uuid' => Uuid::generate(4),
-            'uuid' => md5('name'),
         ]);
 
         return $tenant->users()->create([
