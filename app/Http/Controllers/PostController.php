@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Post\StoreUpdatePostRequest;
 
 class PostController extends Controller
 {
@@ -36,7 +37,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdatePostRequest $request)
     {
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
