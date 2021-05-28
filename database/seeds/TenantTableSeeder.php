@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Tenant;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class TenantTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(TenantTableSeeder::class);
-        $this->call(UserTableSeeder::class);
+        factory(Tenant::class, 2)->create();
     }
 }
