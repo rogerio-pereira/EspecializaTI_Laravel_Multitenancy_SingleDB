@@ -37,7 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tenant() {
+    public function tenant()
+    {
         return $this->belongsTo(Tenant::class);
+    }
+
+    public function posts() 
+    {
+        return $this->hasMany(Post::class);
     }
 }
