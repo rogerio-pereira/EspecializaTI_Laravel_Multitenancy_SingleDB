@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -39,7 +39,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        //or Auth::user()->posts()->create($data);
+        $post = $request->user()
+                    ->posts()
+                    ->create($data);
+
+        return redirect()
+                    ->back()
+                    ->withSuccess('Created Post!');
     }
 
     /**
