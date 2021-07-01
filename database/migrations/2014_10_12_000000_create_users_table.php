@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
 
             $table->foreign('tenant_id')
                 ->references('id')
-                ->on('tenats')
+                ->on('tenants')
                 ->onDelete('cascade');
         });
     }
