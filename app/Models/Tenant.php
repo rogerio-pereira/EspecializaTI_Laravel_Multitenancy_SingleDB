@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Tenant extends Model
 {
     protected $fillable = [
-        'name'
+        'name',
+        'uuid'
     ];
 
-    public function tenant()
+    public function users()
     {
         return $this->hasMany(User::class);
     }
