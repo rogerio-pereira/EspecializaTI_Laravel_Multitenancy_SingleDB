@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\Tenant\TenantScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -11,6 +12,13 @@ class Post extends Model
         'body',
         'user_id',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new TenantScope);
+    }
 
     public function user()
     {
