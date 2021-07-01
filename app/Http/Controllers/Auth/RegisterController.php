@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Models\Tenant;
-use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
@@ -69,7 +68,6 @@ class RegisterController extends Controller
     {
         $tenant = Tenant::create([
             'name' => $data['tenant'],
-            'uuid' => Str::uuid(),
         ]);
 
         return $tenant->users()->create([
